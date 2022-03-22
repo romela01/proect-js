@@ -212,13 +212,13 @@ html{
     
 }
 .supporters h3{
+    color: white;
     font-size: 24px;
     display: flex;
     justify-content: center;
 }
 .page span{
     margin-left: 15px;
-    color: white;
 }
 
 /* contact section */
