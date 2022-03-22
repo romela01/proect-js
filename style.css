@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+}
+html{
+    scroll-behavior:smooth;
+}
+
+/* home section */
+.home{
+    height: 100vh;
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://static.timesofisrael.com/www/uploads/2022/03/AP22063541762006.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+.nav{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+.icon{
+    text-align: center;
+    cursor: pointer;
+    margin-left: 50px;
+}
+.icon img{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+}
+.icon p{
+    color: blue;
+    font-size: 20px;
+}
+.icon p span{
+    color: yellow;
+}
+.menu ul{
+    display: flex;
+}
+.menu ul li{
+    transition: all 0.5s ease;
+}
+.menu ul li:hover{
+    transform: scale(1.05);
+}
+.menu ul li{
+    cursor: pointer;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: yellow;
+    transition: all 0.5s ease;
+}
+.menu ul li i{
+    margin-right: 50px;
+}
+.menu ul li a{
+    margin-right: 50px;
+    cursor: pointer;
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: yellow;
+    transition: all 0.5s ease;
+}
+
+.menu ul li a:hover{
+    color: blue;
+}
+
+
+
+.dropdown{
+    display: none;
+    position: absolute;
+    flex-direction: column;
+}
+#dropdown li a{
+    font-size: 18px;
+}
+.list:hover .dropdown {
+    display: block;
+}
+
+
+
+.carousel-container{
+    display: flex;
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.carousel-slide{
+    display: flex;
+    height: 500px;
+    width: 100%;
+}
+.carousel-slide img{
+    min-width: 100%;
+}
+.arrow{
+    font-size: 70px;
+    cursor: pointer;
+    color: yellow;
+    transition: transform 0.3s ease;
+}
+.arrow:hover{
+    transform: scale(1.2);
+    color: blue;
+}
+.arrow-left{
+    margin-right: 3%;
+}
+.arrow-right{
+    margin-left: 3%;
+}
+
+/* support section */
+
+.support{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 255, 42);
+}
+/* supporters section */
+
+.supporters{
+    width: 100%;
+    height: 100vh;
+    padding-top: 20px;
+    background-image: url(https://cdn.searchenginejournal.com/wp-content/uploads/2022/03/seo-companies-support-ukraine-6220c92cf222b-sej-760x400.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.supporters h2{
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+.persons{
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.person{
+    height: 45%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.person:hover{
+    transform: scale(1.05);
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6)
+}
+.person img{
+    border-radius: 50%;
+}
+.person li{
+    letter-spacing: 2px;
+    margin-top: 1%;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.buttons button{
+    width: 25%;
+    margin: 10px;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 10px;
+    border-style: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.buttons button:hover{
+    transform: scale(1.1);
+    color: black;
+    background-color: rgba(255, 255, 255, 0.6);
+    
+}
+.supporters h3{
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+}
+.page span{
+    margin-left: 15px;
+    color: white;
+}
+
+/* contact section */
+
+.contact{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
