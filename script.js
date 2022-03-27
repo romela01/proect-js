@@ -55,6 +55,11 @@ let next = document.querySelector('.next-btn');
 let pages = document.querySelector('.page span');
 
 let current=1
+
+let result = document.getElementById('result')
+let filter = document.getElementById('filter')
+let listItems = [];
+
 function start(current){
     fetch('https://reqres.in/api/users?page='+current,{
     method: 'GET'
@@ -88,23 +93,35 @@ function page(response){
         ul.append(img)
 
         let li1 = document.createElement('li');
-        li1.textContent ="Name: " +item.first_name;
+        li1.classList.add('names')
+        li1.textContent =item.first_name +' '+ item.last_name;
         ul.appendChild(li1);
 
-        let li2 = document.createElement('li');
-        li2.textContent ="Last-Name: " +item.last_name;
-        ul.appendChild(li2)
-
-        let li3 = document.createElement('li');
-        li3.textContent = "Email: " + item.email;
-        ul.appendChild(li3)
-
         div.appendChild(ul)
+
+        listItems.push(div)
+        
 
         persons.appendChild(div)
     });
 }
+// filter
+function filterData(searchItem){
+    listItems.forEach((item)=>{
+        console.log(item)
+        if(item.innerText.toLowerCase().includes(searchItem.toLowerCase())){
+            item.classList.remove('active');
+        }else{
+            item.classList.add('active')
+        }
+    })
+}
 
+filter.addEventListener('input',(event)=>{
+    filterData(event.target.value)
+})
+
+// end filter
 prev.addEventListener('click',()=>{
     if(current>1){
         current--;
@@ -121,4 +138,117 @@ next.addEventListener('click',()=>{
         pages.textContent=current
         start(current)
     }
+})
+
+// color change
+
+let out = document.querySelector('.change-out');
+let inn = document.querySelector('.change-in');
+let blar = document.querySelector('.blar')
+
+out.addEventListener('click',()=>{
+    blar.classList.toggle('blar-add')
+    inn.classList.toggle('change-in-add')
+    inn.classList.toggle('color-black')
+    out.classList.toggle('color-white')
+
+    let theme;
+
+    
+
+    if(blar.classList.contains('blar-add')){
+        theme = 'DARK'
+    }else{
+        theme = 'LIGHT'
+    }
+    
+    localStorage.setItem("PageTheme", JSON.stringify(theme))
+
+})
+
+let GetTheme = JSON.parse(localStorage.getItem('PageTheme'))
+
+
+if(GetTheme==="DARK"){
+    blar.classList='blar blar-add'
+    inn.classList.add('color-black')
+    inn.classList.add('change-in-add')
+    out.classList.add('color-white')
+}
+   
+// support
+
+let form=document.getElementById('transfer');
+
+form.addEventListener('submit',(event)=>{
+    event.preventDefault();
+
+    let errors ={}
+    let form = event.target
+
+    let amount = document.querySelector('.input-amount').value;
+
+    if(amount<10 || amount>10000){
+        errors.amount = "Wrong amount";
+        
+    }
+
+    // age
+    let age = false;
+
+
+    let formAge = form.querySelectorAll('.age');
+
+
+    formAge.forEach(item=>{
+        if(item.checked){
+             age = true;
+        }    
+    })
+
+    if(!age){
+        errors.age = "Please select your Age"
+    }
+
+    // gender
+    let gender = false;
+
+    let allGender = form.querySelectorAll('.gender');
+
+    allGender.forEach(item=>{
+        if(item.checked){
+            gender = true;
+        }
+    })
+
+    if(!gender){
+        errors.gender = "Please select Gender"
+    }
+    
+    form.querySelectorAll('.error-text').forEach(item=>{
+        item.textContent='';
+    })
+
+    for (let item in errors){
+        
+        let errorPlaceholder = document.getElementById('error_'+ item)
+
+        if(errorPlaceholder){
+            errorPlaceholder.textContent = errors[item]
+        }
+    }
+
+    if(Object.keys(errors).length==0){
+        form.submit();
+    }
+
+})
+
+
+// contact
+
+let accordion = document.querySelector('.accordion');
+
+accordion.addEventListener('click',()=>{
+    accordion.classList.toggle('active')
 })

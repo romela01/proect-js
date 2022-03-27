@@ -33,7 +33,7 @@ html{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1;
+    z-index: 5;
 }
 .icon{
     text-align: center;
@@ -84,6 +84,16 @@ html{
     color: blue;
 }
 
+.blar{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    
+}
+.blar-add{
+    background-color: rgba(0, 0, 0, 0.9);
+}
 
 
 .dropdown{
@@ -106,6 +116,7 @@ html{
     border: 2px solid black;
     border-radius: 20px;
     overflow: hidden;
+    z-index: 3;
 }
 .carousel-slide{
     display: flex;
@@ -120,6 +131,7 @@ html{
     cursor: pointer;
     color: yellow;
     transition: transform 0.3s ease;
+    z-index: 3;
 }
 .arrow:hover{
     transform: scale(1.2);
@@ -132,13 +144,106 @@ html{
     margin-left: 3%;
 }
 
+.change-out{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 22px;
+    background-color: white;
+    border-radius: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    
+}
+.color-white{
+    background-color: black;
+}
+.change-in{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+    border-radius: 50%;
+    background-color: black;
+}
+.color-black{
+    background-color: white;
+}
+.change-in-add{
+    right: 0px;
+}
 /* support section */
-
 .support{
+    position: relative;
     width: 100%;
     height: 100vh;
-    background-color: rgb(0, 255, 42);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://static.timesofisrael.com/www/uploads/2022/02/AP22057493128743.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+.support-text{
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    color: crimson;
+    font-size: 35px;
+    cursor: pointer;
+}
+.form-box{
+    height: 70%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.form div{
+    min-height: 25%;
+    font-size: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+}
+.form div label{
+    margin-right: 30px;
+    color: white;
+}
+.input-amount{
+    height: 30px;
+}
+.transfer-btn button{
+    margin: 0 auto;
+    font-size: 16px;
+    width: 40%;
+    padding: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+    transition: all 0.5s ease ;
+}
+.transfer-btn button:hover{
+    background-color: rgba(220, 20, 60, 0.6)
+}
+.error-text{
+    color: red;
+}
+
 /* supporters section */
 
 .supporters{
@@ -157,8 +262,19 @@ html{
     color: white;
     cursor: pointer;
 }
+.search-block{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    display: inline-block;
+}
+.search-block h5{
+    color: crimson;
+    font-size: 26px;
+}
 .persons{
-    height: 80%;
+    height: 70%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -186,7 +302,7 @@ html{
     border-radius: 50%;
 }
 .person li{
-    letter-spacing: 2px;
+    letter-spacing: 5px;
     margin-top: 1%;
 }
 .buttons{
@@ -221,10 +337,71 @@ html{
     margin-left: 15px;
 }
 
+.persons div.active{
+    display: none;
+}
+
 /* contact section */
 
 .contact{
     width: 100%;
     height: 100vh;
-    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    background-image: url(https://thumbs.dreamstime.com/b/board-no-war-stop-little-ukrainian-child-patriot-america-stand-ukraine-242457026.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.info{
+    width: 60%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+}
+.contacts{
+    color: white;
+}
+.contacts span{
+    margin-right: 20px;
+    color: crimson;
+}
+.contacts div{
+    margin-top: 20px;
+}
+
+.accordion{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+
+}
+.accordion-title::before{
+    content: '+';
+    position: absolute;
+    top: 0px;
+    right: 20px;
+}
+
+.cities{
+    position: relative;
+    height: 0px;
+    overflow: hidden;
+    transition: 0.7s;
+}
+.cities li span{
+    color: brown;
+}
+
+.accordion.active .cities{
+    height: 120px;
+}
+
+.accordion.active .accordion-title::before{
+    content: '-';
 }
