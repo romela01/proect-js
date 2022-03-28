@@ -244,7 +244,6 @@ form.addEventListener('submit',(event)=>{
 
 })
 
-
 // contact
 
 let accordion = document.querySelector('.accordion');
