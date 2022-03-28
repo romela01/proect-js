@@ -157,6 +157,7 @@ html{
     align-items: center;
     text-align: center;
     cursor: pointer;
+    z-index: 10;
     
 }
 .color-white{
@@ -188,6 +189,7 @@ html{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 .support-text{
     position: absolute;
@@ -204,15 +206,31 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: relative;
 }
 .form{
     width: 100%;
     height: 100%;
     padding: 20px;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.8);
+    
 }
-
+.card-open{
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    padding: 2px 20px;
+    font-size: 20px;
+    color: green;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border-style: none;
+}
+.card-open:hover{
+    background-color: green;
+    color: white;
+}
 .form div{
     min-height: 25%;
     font-size: 20px;
@@ -344,6 +362,7 @@ html{
 /* contact section */
 
 .contact{
+    position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -404,4 +423,103 @@ html{
 
 .accordion.active .accordion-title::before{
     content: '-';
+}
+
+.burger{
+    height: 100vh;
+    width: 100%;
+    background-color: aqua;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translateX(100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://www.unicef.org/ukraine/sites/unicef.org.ukraine/files/styles/hero_desktop/public/Capture_3.PNG?itok=ZeHz4Zum);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 1s ease;
+}
+.burger-add{
+    transform: translateX(0%);
+}
+.burger-content{
+    width: 60%;
+    height: 60%;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 50px;
+    position: relative;
+    
+    
+}
+.burger-content div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.burger-content div label{
+    color: crimson;
+    font-size: 28px;
+}
+.burger-content div input{
+    margin-bottom: 50px;
+    display: block;
+    height: 30px;
+    width: 300px;
+}
+.div-btn button{
+    font-size:22px;
+    padding: 5px;
+    width: 220px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: crimson;
+    transition: all 0.5s ease;
+    border: 2px solid black;
+}
+.div-btn button:hover{
+    background-color: crimson;
+    color: white;
+}
+.content-x{
+    font-size: 30px;
+    color: red;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
+}
+
+/* animations */
+
+@keyframes cardanim{
+    from{
+        opacity: 0;
+        transform: translateX(-600px);
+        background-color: white;
+        
+
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes burgeranim{
+    from{
+        opacity: 0;
+        background-color: white;
+        transform: scale(0.3);
+        
+
+    }
+    to{
+        opacity: 1;
+        
+    }
 }

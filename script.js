@@ -252,3 +252,24 @@ let accordion = document.querySelector('.accordion');
 accordion.addEventListener('click',()=>{
     accordion.classList.toggle('active')
 })
+
+// support burger-card
+let burger = document.querySelector('.burger');
+let card = document.querySelector('.card-open');
+let close = document.querySelector('.content-x')
+let formBox = document.querySelector('.form-box')
+let burgerContent = document.querySelector('.burger-content')
+
+card.addEventListener('click',()=>{
+    burger.classList.add('burger-add')
+    formBox.style.animation='';
+    burgerContent.style.animation=`burgeranim 2s ease`;
+    
+})
+
+close.addEventListener('click',()=>{
+    burger.classList.remove('burger-add')
+    formBox.style.animation = `cardanim 2s ease`;
+    burgerContent.style.animation='';
+})
+
